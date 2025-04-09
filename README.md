@@ -1,4 +1,4 @@
-# Schdule Sessions project
+# Schedule Sessions project
 
 ## Project info
 
