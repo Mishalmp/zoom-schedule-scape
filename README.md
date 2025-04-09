@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Schdule Sessions project
 
 ## Project info
 
