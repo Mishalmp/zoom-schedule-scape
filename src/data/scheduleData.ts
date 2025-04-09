@@ -14,6 +14,8 @@ export type ScheduleEvent = {
   description?: string;
   organizer?: string;
   color?: string;
+  attendees?: string[];
+  isConfirmed?: boolean;
 };
 
 export const rooms: Room[] = [
@@ -42,6 +44,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Monday',
     organizer: 'Alex Miller',
     color: 'bg-blue-100 border-blue-300',
+    description: 'Daily standup meeting to discuss progress and blockers.',
+    attendees: ['Team Alpha', 'John Doe', 'Jane Smith'],
+    isConfirmed: true
   },
   {
     id: 'event2',
@@ -52,6 +57,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Monday',
     organizer: 'Sarah Johnson',
     color: 'bg-green-100 border-green-300',
+    description: 'Review of the latest product features and roadmap planning.',
+    attendees: ['Product Team', 'Design Team'],
+    isConfirmed: true
   },
   {
     id: 'event3',
@@ -62,6 +70,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Monday',
     organizer: 'Michael Chen',
     color: 'bg-purple-100 border-purple-300',
+    description: 'Meeting with ABC Corp to discuss the new project requirements.',
+    attendees: ['Sales Team', 'Client Representatives'],
+    isConfirmed: false
   },
   {
     id: 'event4',
@@ -72,6 +83,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Monday',
     organizer: 'Emma Davis',
     color: 'bg-yellow-100 border-yellow-300',
+    description: 'Collaborative design workshop for the new user interface.',
+    attendees: ['Design Team', 'UX Researchers'],
+    isConfirmed: true
   },
   {
     id: 'event5',
@@ -82,6 +96,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Tuesday',
     organizer: 'John Smith',
     color: 'bg-red-100 border-red-300',
+    description: 'Technical discussion and coordination between engineering teams.',
+    attendees: ['Backend Team', 'Frontend Team'],
+    isConfirmed: true
   },
   {
     id: 'event6',
@@ -92,6 +109,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Tuesday',
     organizer: 'Lisa Wong',
     color: 'bg-indigo-100 border-indigo-300',
+    description: 'Strategic planning session for the upcoming quarter.',
+    attendees: ['Leadership Team', 'Department Heads'],
+    isConfirmed: true
   },
   {
     id: 'event7',
@@ -102,6 +122,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Wednesday',
     organizer: 'Team',
     color: 'bg-pink-100 border-pink-300',
+    description: 'Team building lunch to celebrate recent project completion.',
+    attendees: ['All Staff'],
+    isConfirmed: true
   },
   {
     id: 'event8',
@@ -112,6 +135,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Wednesday',
     organizer: 'David Kim',
     color: 'bg-cyan-100 border-cyan-300',
+    description: 'Initial meeting to launch the new marketing automation project.',
+    attendees: ['Project Team', 'Stakeholders'],
+    isConfirmed: true
   },
   {
     id: 'event9',
@@ -122,6 +148,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Thursday',
     organizer: 'CEO',
     color: 'bg-amber-100 border-amber-300',
+    description: 'Quarterly meeting with the board of directors to review performance.',
+    attendees: ['Board Members', 'Executive Team'],
+    isConfirmed: true
   },
   {
     id: 'event10',
@@ -132,6 +161,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Friday',
     organizer: 'Product Team',
     color: 'bg-emerald-100 border-emerald-300',
+    description: 'Demo and review of completed work from the current sprint.',
+    attendees: ['Development Team', 'Product Owners'],
+    isConfirmed: true
   },
   {
     id: 'event11',
@@ -142,6 +174,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Friday',
     organizer: 'UX Team',
     color: 'bg-teal-100 border-teal-300',
+    description: 'Usability testing session with focus group participants.',
+    attendees: ['UX Team', 'Test Participants'],
+    isConfirmed: true
   },
   {
     id: 'event12',
@@ -152,6 +187,9 @@ export const scheduleEvents: ScheduleEvent[] = [
     day: 'Friday',
     organizer: 'Engineering',
     color: 'bg-blue-100 border-blue-300',
+    description: 'Knowledge sharing session about the latest technologies.',
+    attendees: ['All Technical Staff', 'Interested Parties'],
+    isConfirmed: true
   },
 ];
 

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Calendar, Users, Clock, Settings, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, Calendar, Users, Clock, Settings, Home, CalendarCheck, CalendarRange, UserPlus } from 'lucide-react';
 
 interface SidebarProps {
   className?: string;
@@ -32,30 +33,48 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
 
       <div className="flex-1 overflow-y-auto py-4">
         <nav className="px-2 space-y-1">
-          <a href="#" className="sidebar-link active">
+          <Link to="/" className="sidebar-link active">
             <Home size={20} />
             {!collapsed && <span>Dashboard</span>}
-          </a>
-          <a href="#" className="sidebar-link">
+          </Link>
+          
+          <div className={`mt-6 mb-2 px-3 ${collapsed ? 'hidden' : 'block'}`}>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Planning</p>
+          </div>
+          
+          <Link to="/calendar" className="sidebar-link">
             <Calendar size={20} />
             {!collapsed && <span>Calendar</span>}
-          </a>
-          <a href="#" className="sidebar-link">
+          </Link>
+          <Link to="/" className="sidebar-link">
+            <CalendarRange size={20} />
+            {!collapsed && <span>Timeline</span>}
+          </Link>
+          <Link to="/" className="sidebar-link">
+            <CalendarCheck size={20} />
+            {!collapsed && <span>Schedules</span>}
+          </Link>
+          
+          <div className={`mt-6 mb-2 px-3 ${collapsed ? 'hidden' : 'block'}`}>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Organization</p>
+          </div>
+          
+          <Link to="/teams" className="sidebar-link">
             <Users size={20} />
             {!collapsed && <span>Teams</span>}
-          </a>
-          <a href="#" className="sidebar-link">
-            <Clock size={20} />
-            {!collapsed && <span>Schedules</span>}
-          </a>
+          </Link>
+          <Link to="/" className="sidebar-link">
+            <UserPlus size={20} />
+            {!collapsed && <span>Members</span>}
+          </Link>
         </nav>
       </div>
 
       <div className="p-4 border-t border-gray-200">
-        <a href="#" className="sidebar-link">
+        <Link to="/" className="sidebar-link">
           <Settings size={20} />
           {!collapsed && <span>Settings</span>}
-        </a>
+        </Link>
       </div>
     </div>
   );

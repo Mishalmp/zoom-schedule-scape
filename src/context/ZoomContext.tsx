@@ -5,6 +5,8 @@ type ZoomContextType = {
   zoomLevel: number;
   increaseZoom: () => void;
   decreaseZoom: () => void;
+  selectedDay: string | null;
+  setSelectedDay: (day: string | null) => void;
 };
 
 const ZoomContext = createContext<ZoomContextType | undefined>(undefined);
@@ -19,6 +21,7 @@ export const useZoom = () => {
 
 export const ZoomProvider = ({ children }: { children: ReactNode }) => {
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [selectedDay, setSelectedDay] = useState<string | null>(null);
 
   const increaseZoom = () => {
     setZoomLevel(prevZoom => Math.min(prevZoom + 0.25, 2.5));
@@ -29,7 +32,13 @@ export const ZoomProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ZoomContext.Provider value={{ zoomLevel, increaseZoom, decreaseZoom }}>
+    <ZoomContext.Provider value={{ 
+      zoomLevel, 
+      increaseZoom, 
+      decreaseZoom,
+      selectedDay,
+      setSelectedDay
+    }}>
       {children}
     </ZoomContext.Provider>
   );

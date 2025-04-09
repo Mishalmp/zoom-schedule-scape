@@ -2,12 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useZoom } from '../context/ZoomContext';
 import ScheduleCard from './ScheduleCard';
+import DayDetailsDrawer from './DayDetailsDrawer';
 import { days, rooms, timeSlots, scheduleEvents } from '../data/scheduleData';
 
 const BASE_CELL_HEIGHT = 40; // Height of a 30-minute slot at zoom level 1
 
 const ScheduleGrid: React.FC = () => {
-  const { zoomLevel } = useZoom();
+  const { zoomLevel, selectedDay, setSelectedDay } = useZoom();
   const [currentView, setCurrentView] = useState<'day' | 'room'>('day');
   
   // Calculate time slot height based on zoom level
@@ -41,7 +42,8 @@ const ScheduleGrid: React.FC = () => {
         {days.map(day => (
           <div 
             key={day} 
-            className="flex-1 h-12 bg-white border-b border-gray-200 flex items-center justify-center font-medium"
+            className={`flex-1 h-12 bg-white border-b border-gray-200 flex items-center justify-center font-medium cursor-pointer transition-all hover:bg-blue-50 ${selectedDay === day ? 'bg-blue-100' : ''}`}
+            onClick={() => setSelectedDay(day)}
           >
             {day}
           </div>
@@ -174,6 +176,9 @@ const ScheduleGrid: React.FC = () => {
           </div>
         </div>
       </div>
+      
+      {/* Day Details Drawer */}
+      <DayDetailsDrawer />
     </div>
   );
 };
